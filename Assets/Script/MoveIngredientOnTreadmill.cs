@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MoveIngredientOnTreadmill : MonoBehaviour
 {
-    [SerializeField] private float _speed = 8f;
+    public float _speed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
