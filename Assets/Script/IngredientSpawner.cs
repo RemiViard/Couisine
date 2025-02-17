@@ -27,7 +27,11 @@ public class IngredientSpawner : MonoBehaviour
     private void SpawnRandomIngredient() {
         var prefab = _ingredients[Random.Range(0, _ingredients.Count-1)];
         var instance = Instantiate(prefab, transform.position, Quaternion.identity);
+        
         var moveScript = instance.AddComponent<MoveIngredientOnTreadmill>();
         moveScript._speed = _speed;
+
+        var clickableScript = instance.AddComponent<Clickable>();
+        clickableScript.SetOnClick(() => Destroy(instance));
     }
 }
