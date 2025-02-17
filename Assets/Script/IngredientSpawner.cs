@@ -5,6 +5,8 @@ public class IngredientSpawner : MonoBehaviour
 {
     [SerializeReference] private List<GameObject> _ingredients;
     [SerializeField] private float _maxTime = 1.5f;
+    [SerializeField] private Basket basket;
+
     public float _speed = 8f;
 
     private float _timer = 0f;
@@ -32,6 +34,10 @@ public class IngredientSpawner : MonoBehaviour
         moveScript._speed = _speed;
 
         var clickableScript = instance.AddComponent<Clickable>();
-        clickableScript.SetOnClick(() => Destroy(instance));
+        clickableScript.SetOnClick(() => {
+            Destroy(moveScript);
+            Destroy(clickableScript);
+            basket.AddItem(instance);
+        });
     }
 }
