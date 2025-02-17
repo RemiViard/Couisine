@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
 
     private void Select(InputAction.CallbackContext obj)
     {
-        //Debug.Log(Input.mousePosition);
+        Debug.Log(Input.mousePosition);
     }
 
     // Update is called once per frame
