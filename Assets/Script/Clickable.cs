@@ -5,12 +5,7 @@ using UnityEngine.InputSystem;
 public class Clickable : MonoBehaviour
 {
     private InputAction select;
-    private Action OnClick;
-
-    public void SetOnClick(Action OnClick)
-    {
-        this.OnClick = OnClick;
-    }
+    public event Action OnClick;
 
     void Start()
     {
@@ -23,7 +18,7 @@ public class Clickable : MonoBehaviour
         RaycastHit hit;
         Physics.Raycast(ray, out hit, 100);
         if (hit.transform != transform) { return; }
-        OnClick();
+        OnClick?.Invoke();
     }
 
     void OnDisable()

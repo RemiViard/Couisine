@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IngredientSpawner : MonoBehaviour
+public class TreadmillSpawner : MonoBehaviour
 {
     [SerializeReference] private List<GameObject> _ingredients;
     [SerializeField] private float _maxTime = 1.5f;
-    [SerializeField] private Basket basket;
+    [SerializeField] private Stage1Basket basket;
 
     public float _speed = 8f;
 
@@ -37,12 +37,12 @@ public class IngredientSpawner : MonoBehaviour
         moveScript._speed = _speed;
 
         var clickableScript = instance.AddComponent<Clickable>();
-        clickableScript.SetOnClick(() => {
+        clickableScript.OnClick += () => {
             _currentlyOnTreadmill.Remove(instance);
             Destroy(moveScript);
             Destroy(clickableScript);
             basket.AddItem(instance);
-        });
+        };
     }
 
     void OnDisable()
