@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
 
     private void Select(InputAction.CallbackContext obj)
     {
-
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
@@ -41,7 +40,6 @@ public class Player : MonoBehaviour
                 {
                     if (enterPos == null)
                         enterPos = hit.point;
-
                 }
             }
 
