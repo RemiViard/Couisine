@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 145286346}
   - component: {fileID: 145286347}
   m_Layer: 0
-  m_Name: IngredientSpawner
+  m_Name: TreadmillSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
   - {fileID: 7354844610519081874, guid: dea5e53a1782bb041899a31fcbae328f, type: 3}
   - {fileID: 3593673521125757400, guid: 20af735f1ea1be942b7e15a878f7d392, type: 3}
   - {fileID: 3664105639911881424, guid: 4203e3c0d62a029468f90fc9c0b22a90, type: 3}
-  _maxTime: 0.2
+  _spawnDelay: 0.2
   basket: {fileID: 1222945898}
   _speed: 16
 --- !u!1 &330585543
@@ -567,7 +567,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c427c11dfc455045a1b10b6eda64e17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basket: {fileID: 0}
+  basket: {fileID: 1222945898}
+  stage2: {fileID: 1371961403}
 --- !u!1 &1222945896
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,7 +580,7 @@ GameObject:
   - component: {fileID: 1222945897}
   - component: {fileID: 1222945898}
   m_Layer: 0
-  m_Name: Stage1Basket
+  m_Name: Basket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -612,7 +613,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e2582e2280f7c4695a2b91b8fb2cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basket: []
   offset: 2
 --- !u!1 &1371961403
 GameObject:
