@@ -18,7 +18,6 @@ public class Stage1 : MonoBehaviour
     }
 
     void GoToStage2() {
-        basket.transform.parent = stage2.transform;
         gameObject.SetActive(false);
         stage2.SetActive(true);
     }
