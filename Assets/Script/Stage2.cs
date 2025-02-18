@@ -7,6 +7,11 @@ public class Stage2 : MonoBehaviour
     void Start()
     {
         // TODO
+
+
+    }
+    void NextStage()
+    {
         gameObject.SetActive(false);
         stage3.SetActive(true);
     }
