@@ -4,28 +4,17 @@ using UnityEngine;
 public class TreadmillSpawner : MonoBehaviour
 {
     [SerializeReference] private List<GameObject> _ingredients;
-    [SerializeField] private float _maxTime = 1.5f;
+    [SerializeField] private float _spawnDelay = 0.2f;
     [SerializeField] private Stage1Basket basket;
 
-    public float _speed = 8f;
-
-    private float _timer = 0f;
+    public float _speed = 16f;
 
     private HashSet<GameObject> _currentlyOnTreadmill = new HashSet<GameObject>();
 
     void Start()
     {
         Random.InitState(System.DateTime.Now.Millisecond);
-        SpawnRandomIngredient();
-    }
-
-    void Update()
-    {
-        _timer += Time.deltaTime;
-        if (_timer > _maxTime) {
-            SpawnRandomIngredient();
-            _timer = 0f;
-        }
+        InvokeRepeating(nameof(SpawnRandomIngredient), 0, _spawnDelay);
     }
 
     private void SpawnRandomIngredient() {
@@ -47,6 +36,7 @@ public class TreadmillSpawner : MonoBehaviour
 
     void OnDisable()
     {
+        CancelInvoke();
         foreach (var obj in _currentlyOnTreadmill) {
             Destroy(obj);
         }
