@@ -530,6 +530,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 917671674}
+  - component: {fileID: 917671675}
   m_Layer: 0
   m_Name: Stage1
   m_TagString: Untagged
@@ -554,6 +555,19 @@ Transform:
   - {fileID: 1222945897}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &917671675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917671673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c427c11dfc455045a1b10b6eda64e17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basket: {fileID: 0}
 --- !u!1 &1222945896
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,7 +579,7 @@ GameObject:
   - component: {fileID: 1222945897}
   - component: {fileID: 1222945898}
   m_Layer: 0
-  m_Name: Basket
+  m_Name: Stage1Basket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -598,6 +612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e2582e2280f7c4695a2b91b8fb2cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basket: []
   offset: 2
 --- !u!1 &1371961403
 GameObject:
