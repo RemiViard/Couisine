@@ -9,8 +9,6 @@ public class TreadmillSpawner : MonoBehaviour
 
     public float _speed = 16f;
 
-    private HashSet<GameObject> _currentlyOnTreadmill = new HashSet<GameObject>();
-
     void Start()
     {
         Random.InitState(System.DateTime.Now.Millisecond);
@@ -20,14 +18,13 @@ public class TreadmillSpawner : MonoBehaviour
     private void SpawnRandomIngredient() {
         var prefab = _ingredients[Random.Range(0, _ingredients.Count-1)];
         var instance = Instantiate(prefab, transform.position, Quaternion.identity);
-        _currentlyOnTreadmill.Add(instance);
+        instance.transform.parent = gameObject.transform;
         
         var moveScript = instance.AddComponent<MoveIngredientOnTreadmill>();
         moveScript._speed = _speed;
 
         var clickableScript = instance.AddComponent<Clickable>();
         clickableScript.OnClick += () => {
-            _currentlyOnTreadmill.Remove(instance);
             Destroy(moveScript);
             Destroy(clickableScript);
             basket.AddItem(instance);
@@ -37,8 +34,5 @@ public class TreadmillSpawner : MonoBehaviour
     void OnDisable()
     {
         CancelInvoke();
-        foreach (var obj in _currentlyOnTreadmill) {
-            Destroy(obj);
-        }
     }
 }
