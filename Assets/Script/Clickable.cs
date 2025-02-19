@@ -9,7 +9,7 @@ public class Clickable : MonoBehaviour
 
     void Start()
     {
-        select = InputSystem.actions.FindAction("Select");
+        select = InputSystem.actions.FindAction("LeftClick");
         select.performed += OnSelect; 
     }
 

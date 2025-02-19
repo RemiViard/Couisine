@@ -72,7 +72,8 @@ public class Cutter : MonoBehaviour
         }
 
         var rightRigidbody = right.AddComponent<Rigidbody>();
-        rightRigidbody.AddRelativeForce(-cutPlane.normal * 25f);
+        rightRigidbody.AddRelativeForce(-cutPlane.normal * 100f);
+        originalGameObject.GetComponent<Rigidbody>().AddRelativeForce(cutPlane.normal * 100f);
         isBusy = false;
         return right;
     }
