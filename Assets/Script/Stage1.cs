@@ -13,12 +13,12 @@ public class Stage1 : MonoBehaviour
     void OnBasketUpdate() {
         // Condition to go to stage2
         if (basket.transform.childCount == 4) {
-            GoToStage2();
+            NextStage();
         }
     }
 
-    void GoToStage2() {
-        gameObject.SetActive(false);
+    void NextStage() {
         stage2.SetActive(true);
+        gameObject.SetActive(false);
     }
 }
