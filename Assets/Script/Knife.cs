@@ -1,8 +1,11 @@
 using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.Events;
+
 public class Knife : MonoBehaviour
 {
+    public UnityEvent endSlice;
     public float sensitivity;
     public float rotationSensitivity;
     float startPos;
@@ -36,6 +39,7 @@ public class Knife : MonoBehaviour
                 timer = -1;
                 isBusy = false;
                 hasCut = false;
+                endSlice.Invoke();
             }
 
         }

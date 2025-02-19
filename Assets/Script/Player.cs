@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
@@ -10,33 +11,28 @@ public class Player : MonoBehaviour
     Vector3 enterPos;
     float lastMouseX;
     [SerializeField] Knife knife;
+
+
     void Start()
     {
         cut = InputSystem.actions.FindAction("Space");
         cut.performed += Cut;
         leftClick = InputSystem.actions.FindAction("leftClick");
         rightClick = InputSystem.actions.FindAction("rightClick");
+        ResetMouseX();
+        knife.endSlice.AddListener(ResetMouseX);
+    }
+
+    private void ResetMouseX()
+    {
         lastMouseX = Input.mousePosition.x;
     }
 
     private void Cut(InputAction.CallbackContext obj)
     {
-        Debug.Log("Tchak");
         knife.Cut();
-        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //if (Physics.Raycast(ray, out RaycastHit hit))
-        //{
-        //    if (hit.collider.gameObject.CompareTag("Sliceable"))
-        //    {
-        //        Debug.Log("Slice");
-        //        GameObject slice = Cutter.Cut(hit.collider.gameObject, hit.point, Vector3.up);
-        //        slice.tag = "Sliceable";
-        //        hit.collider.gameObject.name = hit.collider.gameObject.name + " Slice";
-        //        slice.name = hit.collider.gameObject.name;
-        //    }
-        //}
     }
-
+    
     // Update is called once per frame
     void Update()
     {
