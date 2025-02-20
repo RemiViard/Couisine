@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class Knife : MonoBehaviour
 {
@@ -14,21 +15,33 @@ public class Knife : MonoBehaviour
     [NonSerialized] public bool isBusy = false;
     float timer = -1;
     bool hasCut = false;
+
+    InputAction cut;
+    InputAction leftClick;
+    InputAction rightClick;
+    float lastMouseX;
     [SerializeField] Transform slivePivot;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         startPos = transform.position.y;
+
+        cut = InputSystem.actions.FindAction("Space");
+        cut.performed += Cut;
+        leftClick = InputSystem.actions.FindAction("leftClick");
+        rightClick = InputSystem.actions.FindAction("rightClick");
+        ResetMouseX();
+        endSlice.AddListener(ResetMouseX);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isBusy)
+        if (isBusy)
         {
             timer += Time.deltaTime * cutSpeed;
-            transform.position = new Vector3 { x = transform.position.x, z = transform.position.z, y = Mathf.Lerp(cutPos, startPos, Mathf.Abs(timer))};
-            if(timer >= 0 && !hasCut)
+            transform.position = new Vector3 { x = transform.position.x, z = transform.position.z, y = Mathf.Lerp(cutPos, startPos, Mathf.Abs(timer)) };
+            if (timer >= 0 && !hasCut)
             {
                 hasCut = true;
                 Slice();
@@ -40,6 +53,32 @@ public class Knife : MonoBehaviour
                 isBusy = false;
                 hasCut = false;
                 endSlice.Invoke();
+            }
+        }
+        else
+        {
+            //Move knife input
+            if (lastMouseX != Input.mousePosition.x)
+            {
+                float newX = transform.position.x + (Input.mousePosition.x - lastMouseX) * Time.deltaTime * sensitivity;
+                newX = Math.Clamp(newX, -1, 1);
+                transform.position = new Vector3(newX, transform.position.y, transform.position.z);
+                lastMouseX = Input.mousePosition.x;
+            }
+            float turnInput = 0;
+            if (rightClick.IsPressed())
+            {
+                turnInput += 1;
+            }
+            if (leftClick.IsPressed())
+            {
+                turnInput += -1;
+            }
+            if (turnInput != 0)
+            {
+                float testedY = transform.eulerAngles.y + turnInput * rotationSensitivity;
+                if (testedY <= 30 || testedY >= 330)
+                    transform.Rotate(new Vector3(0, turnInput * rotationSensitivity, 0));
             }
 
         }
@@ -60,11 +99,11 @@ public class Knife : MonoBehaviour
             foreach (var hit in hits)
             {
                 Debug.Log(hit.collider.gameObject.name);
-                if(hit.collider.gameObject.CompareTag("Sliceable"))
+                if (hit.collider.gameObject.CompareTag("Sliceable"))
                 {
                     GameObject ingredient = Cutter.Cut(hit.collider.gameObject, slivePivot.position, slivePivot.right);
                     Debug.Log(ingredient);
-                    if(ingredient != null)
+                    if (ingredient != null)
                     {
                         if (hit.collider.gameObject.name.Contains("Piece"))
                             ingredient.name = hit.collider.gameObject.name;
@@ -79,6 +118,14 @@ public class Knife : MonoBehaviour
             }
         }
     }
-        
-        
+    private void ResetMouseX()
+    {
+        lastMouseX = Input.mousePosition.x;
+    }
+
+    private void Cut(InputAction.CallbackContext obj)
+    {
+        Cut();
+    }
+
 }
