@@ -6,7 +6,7 @@ public class Stage2 : MonoBehaviour
     [SerializeField] GameObject stage3;
     private void OnEnable()
     {
-        timer.SetTimer(5);
+        timer.SetTimer(30);
         timer.timerEnd.AddListener(OnTimerEnd);
     }
     void OnTimerEnd()

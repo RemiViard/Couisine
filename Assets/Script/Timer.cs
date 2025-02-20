@@ -31,7 +31,6 @@ public class Timer : MonoBehaviour
                 activated = false;
                 timerUi.SetActive(false);
             }
-
         }
     }
     void SetUI()
