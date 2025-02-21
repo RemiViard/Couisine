@@ -10,6 +10,7 @@ public class Stage1Basket : MonoBehaviour
     [SerializeField] IngredientManager ingredientManager;
 
     public void AddItem(GameObject obj) {
+        obj.GetComponent<MoveIngredientOnTreadmill>().enabled = false;
         obj.transform.position = transform.position + Vector3.right * offset * gameObject.transform.childCount;
         obj.transform.parent = gameObject.transform;
         ingredientManager.AddIngredient(obj.GetComponent<Ingredient>());

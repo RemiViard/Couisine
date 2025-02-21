@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class Knife : MonoBehaviour
 {
-    public UnityEvent endSlice;
+    [NonSerialized] public UnityEvent endSlice;
     public float sensitivity;
     public float rotationSensitivity;
     float startPos;

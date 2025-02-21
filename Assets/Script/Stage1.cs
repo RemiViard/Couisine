@@ -4,10 +4,20 @@ public class Stage1 : MonoBehaviour
 {
     [SerializeField] Stage1Basket basket;
     [SerializeField] GameObject stage2;
-
+    
+    public enum EState
+    {
+        Steack,
+        Condiment1,
+        Condiment2,
+        Top,
+        Bot,
+    }
+    public EState state;
     void Start()
     {
         basket.onAdd += OnBasketUpdate;
+        state = EState.Steack;
     }
 
     void OnBasketUpdate() {
@@ -20,5 +30,6 @@ public class Stage1 : MonoBehaviour
     void NextStage() {
         stage2.SetActive(true);
         gameObject.SetActive(false);
+        state = EState.Steack;
     }
 }
