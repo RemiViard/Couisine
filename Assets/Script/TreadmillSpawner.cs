@@ -4,9 +4,9 @@ using UnityEngine;
 public class TreadmillSpawner : MonoBehaviour
 {
     [SerializeReference] private List<GameObject> ingredient;
-    private List<GameObject> steack = new List<GameObject>();
-    private List<GameObject> condiment = new List<GameObject>();
-    private List<GameObject> bread = new List<GameObject>();
+    public List<GameObject> steack = new List<GameObject>();
+    public List<GameObject> condiment = new List<GameObject>();
+    public List<GameObject> bread = new List<GameObject>();
     [SerializeField] Stage1 stage1;
 
     [SerializeField] GameObject ingredientColliderPrefab;
@@ -17,8 +17,10 @@ public class TreadmillSpawner : MonoBehaviour
 
     void OnEnable()
     {
+        int count = 0;
         foreach (var ingredient in ingredient)
         {
+            ingredient.GetComponent<Ingredient>().id = count;
             switch (ingredient.GetComponent<Ingredient>().type)
             {
                 case Ingredient.EType.ECuttable:
@@ -31,6 +33,7 @@ public class TreadmillSpawner : MonoBehaviour
                     bread.Add(ingredient);
                     break;
             }
+            count++;
         }
         Random.InitState(System.DateTime.Now.Millisecond);
         InvokeRepeating(nameof(SpawnRandomIngredient), 0, _spawnDelay);
@@ -47,13 +50,26 @@ public class TreadmillSpawner : MonoBehaviour
 
         var instance = Instantiate(prefab, transform.position, Quaternion.identity);
         instance.transform.parent = gameObject.transform;
-        
         var moveScript = instance.AddComponent<MoveIngredientOnTreadmill>();
         moveScript._speed = _speed;
         GameObject collider = Instantiate(ingredientColliderPrefab, instance.transform);
         collider.transform.localPosition = Vector3.zero;
     }
-
+    public void RemoveSelectedIngredientFromList(Ingredient ingredient)
+    {
+        switch (ingredient.type)
+        {
+            case Ingredient.EType.ECuttable:
+                condiment.RemoveAll(s => s.GetComponent<Ingredient>().id == ingredient.id);
+                break;
+            case Ingredient.EType.ECookable:
+                steack.RemoveAll(s => s.GetComponent<Ingredient>().id == ingredient.id);
+                break;
+            case Ingredient.EType.EBreadable:
+                bread.RemoveAll(s => s.GetComponent<Ingredient>().id == ingredient.id);
+                break;
+        }
+    }
     void OnDisable()
     {
         CancelInvoke();

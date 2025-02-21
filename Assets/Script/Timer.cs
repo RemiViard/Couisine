@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    float time;
+    public float time;
     public UnityEvent timerEnd;
     [SerializeField] GameObject timerUi; 
     [SerializeField] Text min;
     [SerializeField] Text sec;
-    bool activated;
-    public void SetTimer(int value)
+    public bool activated;
+    public void SetTimer(float value)
     {
         time = value;
         activated = true;
@@ -26,10 +26,10 @@ public class Timer : MonoBehaviour
             SetUI();
             if(time <= 0)
             {
-                timerEnd.Invoke();
-                time = 0;
+                time = 0f;
                 activated = false;
                 timerUi.SetActive(false);
+                timerEnd.Invoke();
             }
         }
     }

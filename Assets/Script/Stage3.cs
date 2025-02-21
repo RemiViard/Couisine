@@ -3,21 +3,22 @@ using UnityEngine;
 
 public class Stage3 : MonoBehaviour
 {
-    [SerializeField] GameObject items;
-    [SerializeField] FallingSpawner spawner;
+    [SerializeField] Timer timer;
     [SerializeField] GameObject stage4;
 
     void OnEnable()
     {
-        spawner.queue.Append(items);
-        foreach (Transform child in items.transform) {
-            spawner.queue.Enqueue(child.gameObject);
-        }
-        Debug.Log(spawner.queue.Count);
+        timer.SetTimer(5f);
+        timer.timerEnd.AddListener(OnTimerEnd);
+    }
+    void OnTimerEnd()
+    {
+        timer.timerEnd.RemoveListener(OnTimerEnd);
+        NextStage();
     }
     void NextStage()
     {
-        stage4.SetActive(true);
         gameObject.SetActive(false);
+        stage4.SetActive(true);
     }
 }

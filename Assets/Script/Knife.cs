@@ -3,10 +3,11 @@ using System.Collections;
 using System;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class Knife : MonoBehaviour
 {
-    [NonSerialized] public UnityEvent endSlice;
+    public UnityEvent endSlice;
     public float sensitivity;
     public float rotationSensitivity;
     float startPos;
@@ -20,7 +21,7 @@ public class Knife : MonoBehaviour
     InputAction leftClick;
     InputAction rightClick;
     float lastMouseX;
-    [SerializeField] Transform slivePivot;
+    [SerializeField] Transform slicePivot;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -92,16 +93,19 @@ public class Knife : MonoBehaviour
     }
     void Slice()
     {
-        RaycastHit[] hits = Physics.RaycastAll(slivePivot.position, slivePivot.forward, 0.7f);
-        Debug.Log(hits.Length);
-        if (hits.Length > 0)
+        List<RaycastHit> hits = new List<RaycastHit>();
+
+        hits.AddRange(Physics.RaycastAll(slicePivot.position, slicePivot.forward, 0.7f));
+        //hits.AddRange(Physics.RaycastAll(slicePivot.position + Vector3.up * 0.6f, slicePivot.forward, 0.7f));
+        //hits.AddRange(Physics.RaycastAll(slicePivot.position + Vector3.up * 1.2f, slicePivot.forward, 0.7f));
+        if (hits.Count > 0)
         {
             foreach (var hit in hits)
             {
                 Debug.Log(hit.collider.gameObject.name);
                 if (hit.collider.gameObject.CompareTag("Sliceable"))
                 {
-                    GameObject ingredient = Cutter.Cut(hit.collider.gameObject, slivePivot.position, slivePivot.right);
+                    GameObject ingredient = Cutter.Cut(hit.collider.gameObject, slicePivot.position, slicePivot.right);
                     Debug.Log(ingredient);
                     if (ingredient != null)
                     {

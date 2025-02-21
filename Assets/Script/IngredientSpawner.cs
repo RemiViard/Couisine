@@ -7,6 +7,7 @@ public class IngredientSpawner : MonoBehaviour
     [SerializeField] float spawnDelay;
     [SerializeField] Transform spawnPos;
     [SerializeField] Ingredient.EType type;
+    [SerializeField] float force;
 
     void Start()
     {
@@ -30,7 +31,10 @@ public class IngredientSpawner : MonoBehaviour
         }
         GameObject ingredient = Instantiate(prefab, gameObject.transform);
         ingredient.transform.position = spawnPos.position;
-        ingredient.GetComponent<Rigidbody>().useGravity = true;
-        Destroy(ingredient.transform.GetChild(0).gameObject);
+        Rigidbody rigidbody = ingredient.GetComponent<Rigidbody>();
+        rigidbody.useGravity = true;
+        rigidbody.AddRelativeForce(Vector3.down * force, ForceMode.Force);
+        if (ingredient.transform.childCount > 0)
+            Destroy(ingredient.transform.GetChild(0).gameObject);
     }
 }
