@@ -150,7 +150,7 @@ MonoBehaviour:
   id: 0
   pieces:
   - {fileID: 1501242992294239168}
-  type: 0
+  type: 1
 --- !u!114 &1501242992294239168
 MonoBehaviour:
   m_ObjectHideFlags: 0
