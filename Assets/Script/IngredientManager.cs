@@ -7,6 +7,9 @@ public class IngredientManager : MonoBehaviour
     public List<Ingredient> cuttables;
     public List<Ingredient> cookables;
     public List<Ingredient> breadables;
+    public List<Piece> condiment1;
+    public List<Piece> condiment2;
+    public List<Piece> meat;
     public void AddIngredient(Ingredient ingredient)
     {
         ingredients.Add(ingredient);

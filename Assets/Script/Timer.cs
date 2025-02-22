@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public float time;
+    float time;
     public UnityEvent timerEnd;
     [SerializeField] GameObject timerUi; 
     [SerializeField] Text min;
     [SerializeField] Text sec;
-    public bool activated;
+    bool activated;
     public void SetTimer(float value)
     {
         time = value;

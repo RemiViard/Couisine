@@ -20,13 +20,13 @@ public class IngredientSpawner : MonoBehaviour
         switch (type)
         {
             case Ingredient.EType.ECuttable:
-                prefab = ingredientManager.cuttables[Random.Range(0, ingredientManager.cuttables.Count - 1)].gameObject;
+                prefab = ingredientManager.cuttables[Random.Range(0, ingredientManager.cuttables.Count )].gameObject;
                 break;
             case Ingredient.EType.ECookable:
-                prefab = ingredientManager.cookables[Random.Range(0, ingredientManager.cookables.Count - 1)].gameObject;
+                prefab = ingredientManager.cookables[Random.Range(0, ingredientManager.cookables.Count )].gameObject;
                 break;
             case Ingredient.EType.EBreadable:
-                prefab = ingredientManager.breadables[Random.Range(0, ingredientManager.breadables.Count - 1)].gameObject;
+                prefab = ingredientManager.breadables[Random.Range(0, ingredientManager.breadables.Count )].gameObject;
                 break;
         }
         GameObject ingredient = Instantiate(prefab, gameObject.transform);
@@ -36,5 +36,9 @@ public class IngredientSpawner : MonoBehaviour
         rigidbody.AddRelativeForce(Vector3.down * force, ForceMode.Force);
         if (ingredient.transform.childCount > 0)
             Destroy(ingredient.transform.GetChild(0).gameObject);
+    }
+    private void OnDisable()
+    {
+        CancelInvoke();
     }
 }

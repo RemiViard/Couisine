@@ -9,7 +9,7 @@ public class Stage1Selector : MonoBehaviour
     [SerializeField] Stage1Basket stage1Basket;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void OnEnable()
     {
         select = InputSystem.actions.FindAction("Space");
         select.performed += SelectObject;
@@ -29,5 +29,9 @@ public class Stage1Selector : MonoBehaviour
     {
         if (currentObject = other.gameObject)
             currentObject = null;
+    }
+    private void OnDisable()
+    {
+        select.performed -= SelectObject;
     }
 }

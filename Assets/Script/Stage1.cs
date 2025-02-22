@@ -27,6 +27,7 @@ public class Stage1 : MonoBehaviour
     void OnBasketUpdate() {
         if (state == EState.Bot)
         {
+            Debug.Log("wtf");
             NextStage();
         }
         else
