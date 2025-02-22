@@ -13,7 +13,6 @@ public class Treadmill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Vector2 vector2 = material.shader
-        //material.SetTextureOffset(0, vector2 + Vector2.right * Time.deltaTime * treadmillSpeed);
+        material.SetTextureOffset("_MainTex", material.GetTextureOffset("_MainTex") +  Vector2.right * Time.deltaTime * treadmillSpeed);
     }
 }
