@@ -905,7 +905,6 @@ MonoBehaviour:
   - {fileID: 6680509898370120594, guid: 81b3b81d16db4da46bdd3b77d2625c3f, type: 3}
   - {fileID: 9079873283458756847, guid: 7db49efbe5c7e454d82d9ee456e078ac, type: 3}
   - {fileID: 2802504543567631993, guid: 5268d731831f98e49bbefb47d5582634, type: 3}
-  - {fileID: 58366482152795642, guid: 2cb922a45e57078438cb520fb3f71aec, type: 3}
   - {fileID: 414467267619123949, guid: 6dc0f06da98eb3d4a86c5f0eb682b551, type: 3}
   - {fileID: 3918514688017890033, guid: b32f49d0fe074a246936110c1e797160, type: 3}
   - {fileID: 7273964882872147361, guid: fde91d65975a954498d1b14ed20b36a8, type: 3}
@@ -5046,7 +5045,7 @@ MonoBehaviour:
   type: 0
   force: 100
   bin: {fileID: 553131368}
-  PositionRandom: 2
+  PositionRandom: 1.5
 --- !u!1 &1409474781
 GameObject:
   m_ObjectHideFlags: 0
