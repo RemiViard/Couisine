@@ -4007,7 +4007,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1093591542
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6129,7 +6129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1616205888
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8315,7 +8315,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   children: {fileID: 424325584912667100}
-  rotationSensitivity: 10
+  sensitivityX: 0.18
+  sensitivityY: 0.11
   rotationClamp: 20
 --- !u!1 &1603364287676738237
 GameObject:
@@ -8546,10 +8547,6 @@ PrefabInstance:
     - target: {fileID: 7277411727991901392, guid: 3f9f1287a8f85da43938c96ced753855, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.314
-      objectReference: {fileID: 0}
-    - target: {fileID: 7277411727991901392, guid: 3f9f1287a8f85da43938c96ced753855, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.228
       objectReference: {fileID: 0}
     - target: {fileID: 7277411727991901392, guid: 3f9f1287a8f85da43938c96ced753855, type: 3}
       propertyPath: m_LocalPosition.z
