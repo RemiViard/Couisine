@@ -9,6 +9,8 @@ public class IngredientSpawner : MonoBehaviour
     [SerializeField] Ingredient.EType type;
     [SerializeField] float force;
     [SerializeField] Bin bin;
+    [SerializeField] float PositionRandom;
+    Vector3 randomVector;
     private void OnEnable()
     {
         Random.InitState(System.DateTime.Now.Millisecond);
@@ -30,11 +32,13 @@ public class IngredientSpawner : MonoBehaviour
                 break;
         }
         GameObject ingredient = Instantiate(prefab, gameObject.transform);
-        ingredient.transform.position = spawnPos.position;
+        randomVector.x = Random.Range(-PositionRandom, PositionRandom);
+        randomVector.z = Random.Range(-PositionRandom, PositionRandom);
+        ingredient.transform.position = spawnPos.position + randomVector;
         ingredient.transform.parent = bin.transform;
         Rigidbody rigidbody = ingredient.GetComponent<Rigidbody>();
         rigidbody.useGravity = true;
-        rigidbody.AddRelativeForce(Vector3.down * force, ForceMode.Force);
+        rigidbody.AddRelativeForce((transform.position-ingredient.transform.position) * force, ForceMode.Force);
         if (ingredient.transform.childCount > 0)
             Destroy(ingredient.transform.GetChild(0).gameObject);
     }
