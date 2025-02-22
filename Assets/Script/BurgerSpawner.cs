@@ -12,8 +12,9 @@ public class BurgerSpawner : MonoBehaviour
         Condiment2,
         Top,
         Score,
+        Review,
     }
-    EState state; 
+    EState state;
     InputAction drop;
     [SerializeField] IngredientManager ingredientManager;
     [SerializeField] GameObject drawerCondiment1;
@@ -39,7 +40,8 @@ public class BurgerSpawner : MonoBehaviour
                 gameObject = Instantiate(ingredientManager.breadables[1].gameObject, transform);
                 gameObject.transform.localPosition = Vector3.zero;
                 gameObject.GetComponent<Rigidbody>().useGravity = true;
-                Destroy(gameObject.transform.GetChild(0).gameObject);
+                if (gameObject.transform.childCount > 0)
+                    Destroy(gameObject.transform.GetChild(0).gameObject);
                 break;
             case EState.Condiment1:
                 drawerCondiment1.SetActive(true);
@@ -54,7 +56,8 @@ public class BurgerSpawner : MonoBehaviour
                 gameObject = Instantiate(ingredientManager.breadables[0].gameObject, transform);
                 gameObject.transform.localPosition = Vector3.zero;
                 gameObject.GetComponent<Rigidbody>().useGravity = true;
-                Destroy(gameObject.transform.GetChild(0).gameObject);
+                if (gameObject.transform.childCount > 0)
+                    Destroy(gameObject.transform.GetChild(0).gameObject);
                 break;
         }
         state++;
@@ -63,6 +66,6 @@ public class BurgerSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

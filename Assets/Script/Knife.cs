@@ -102,11 +102,9 @@ public class Knife : MonoBehaviour
         {
             foreach (var hit in hits)
             {
-                Debug.Log(hit.collider.gameObject.name);
                 if (hit.collider.gameObject.CompareTag("Sliceable"))
                 {
                     GameObject ingredient = Cutter.Cut(hit.collider.gameObject, slicePivot.position, slicePivot.right);
-                    Debug.Log(ingredient);
                     if (ingredient != null)
                     {
                         if (hit.collider.gameObject.name.Contains("Piece"))

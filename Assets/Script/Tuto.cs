@@ -17,7 +17,7 @@ public class Tuto : MonoBehaviour
     }
     public void CloseButton()
     {
-        tutoUi.gameObject.SetActive(true);
+        tutoUi.gameObject.SetActive(false);
         stages[currentTuto].SetActive(true);
     }
 }
