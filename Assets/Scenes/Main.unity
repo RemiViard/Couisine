@@ -2411,7 +2411,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &917671674
 Transform:
   m_ObjectHideFlags: 0
@@ -4553,14 +4553,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2032847065}
-  - {fileID: 1458702947}
   - {fileID: 786753497}
   - {fileID: 727096426}
   - {fileID: 1682532316}
-  - {fileID: 341677681}
   - {fileID: 2080360707}
   - {fileID: 703387533}
-  - {fileID: 496873272}
   - {fileID: 1193610497}
   - {fileID: 1179816554}
   - {fileID: 271879735}
