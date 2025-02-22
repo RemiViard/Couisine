@@ -1344,6 +1344,8 @@ MonoBehaviour:
   stars: {fileID: 877930479}
   scoreText: {fileID: 759666342}
   effectSpeed: 0.2
+  twoStarsScore: 100
+  threeStarsScore: 200
   active: 0
 --- !u!114 &389623820
 MonoBehaviour:

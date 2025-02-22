@@ -12,6 +12,8 @@ public class ScoreUI : MonoBehaviour
     [SerializeField] Text scoreText;
     int scoreEffect;
     [SerializeField] float effectSpeed;
+    [SerializeField] int twoStarsScore;
+    [SerializeField] int threeStarsScore;
     float time;
     bool effectActivated;
     public bool active;
@@ -23,13 +25,15 @@ public class ScoreUI : MonoBehaviour
         effectActivated = true;
         active = true;
         scoreEffect = 0;
-        ScoreManager.score = 100;
     }
     void ShowStars()
     {
-        int id = ScoreManager.score / 100;
-        if (id > 2)
+
+        int id = 0;
+        if (ScoreManager.score >= threeStarsScore)
             id = 2;
+        else if (ScoreManager.score >= twoStarsScore)
+            id = 1;
         stars.sprite = starsSprites[id];
         stars.gameObject.SetActive(true);
     }
