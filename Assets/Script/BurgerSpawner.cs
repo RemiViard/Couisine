@@ -91,5 +91,8 @@ public class BurgerSpawner : MonoBehaviour
     private void OnDisable()
     {
         drop.performed -= Drop;
+        drawerCondiment1.SetActive(false);
+        drawerCondiment2.SetActive(false);
+        drawerMeat.SetActive(false);
     }
 }

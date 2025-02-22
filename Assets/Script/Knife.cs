@@ -23,7 +23,7 @@ public class Knife : MonoBehaviour
     InputAction rightClick;
     float lastMouseX;
     [SerializeField] Transform slicePivot;
-    
+    [SerializeField] Bin bin; 
     [SerializeReference] List<AudioSource> cutAudios = new List<AudioSource>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -126,6 +126,7 @@ public class Knife : MonoBehaviour
                         Piece piece = ingredient.AddComponent<Piece>();
                         piece.ingredient = collider.gameObject.GetComponent<Piece>().ingredient;
                         piece.ingredient.pieces.Add(piece);
+                        piece.transform.parent = bin.transform;
                     }
                 }
             }
