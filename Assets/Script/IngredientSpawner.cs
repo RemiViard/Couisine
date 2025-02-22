@@ -8,7 +8,7 @@ public class IngredientSpawner : MonoBehaviour
     [SerializeField] Transform spawnPos;
     [SerializeField] Ingredient.EType type;
     [SerializeField] float force;
-
+    [SerializeField] Bin bin;
     void Start()
     {
         Random.InitState(System.DateTime.Now.Millisecond);
@@ -31,6 +31,7 @@ public class IngredientSpawner : MonoBehaviour
         }
         GameObject ingredient = Instantiate(prefab, gameObject.transform);
         ingredient.transform.position = spawnPos.position;
+        ingredient.transform.parent = bin.transform;
         Rigidbody rigidbody = ingredient.GetComponent<Rigidbody>();
         rigidbody.useGravity = true;
         rigidbody.AddRelativeForce(Vector3.down * force, ForceMode.Force);

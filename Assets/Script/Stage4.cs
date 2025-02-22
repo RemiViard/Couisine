@@ -3,9 +3,11 @@ using UnityEngine;
 public class Stage4 : MonoBehaviour
 {
     [SerializeField] Menu menu;
-    void ReturnMenu()
+    [SerializeField] Bin bin;
+    public void ReturnMenu()
     {
-        menu.gameObject.SetActive(true);
+        bin.ClearBin();
+        menu.CloseIntro();
         gameObject.SetActive(false);
     }
 }

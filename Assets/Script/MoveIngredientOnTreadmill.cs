@@ -7,7 +7,8 @@ public class MoveIngredientOnTreadmill : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GetComponent<Rigidbody>().useGravity = false;
+        Rigidbody rigidbody = GetComponent<Rigidbody>();
+        rigidbody.isKinematic = true;
     }
 
     // Update is called once per frame

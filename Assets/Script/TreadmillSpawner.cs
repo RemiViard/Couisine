@@ -7,8 +7,7 @@ public class TreadmillSpawner : MonoBehaviour
     public List<GameObject> steack = new List<GameObject>();
     public List<GameObject> condiment = new List<GameObject>();
     public List<GameObject> bread = new List<GameObject>();
-    [SerializeField] Stage1 stage1;
-
+    public Stage1 stage1;
     [SerializeField] GameObject ingredientColliderPrefab;
     [SerializeField] private float _spawnDelay = 0.2f;
     [SerializeField] private Stage1Basket basket;

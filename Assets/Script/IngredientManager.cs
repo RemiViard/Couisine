@@ -32,5 +32,8 @@ public class IngredientManager : MonoBehaviour
         cuttables.Clear();
         cookables.Clear();
         breadables.Clear();
+        condiment1.Clear();
+        condiment2.Clear();
+        meat.Clear();
     }
 }
