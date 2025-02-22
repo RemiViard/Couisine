@@ -9,7 +9,7 @@ public class IngredientSpawner : MonoBehaviour
     [SerializeField] Ingredient.EType type;
     [SerializeField] float force;
     [SerializeField] Bin bin;
-    void Start()
+    private void OnEnable()
     {
         Random.InitState(System.DateTime.Now.Millisecond);
         InvokeRepeating(nameof(SpawnRandomIngredient), 0, spawnDelay);

@@ -46,7 +46,7 @@ public class BurgerSpawner : MonoBehaviour
                 
                 for (int i = drawerCondiment1.transform.childCount-1; i >= 0; i--)
                 {
-                    Ingredient ingredient = drawerCondiment1.transform.GetChild(i).GetComponent<Ingredient>();
+                    Ingredient ingredient = drawerCondiment1.transform.GetChild(i).gameObject.GetComponent<Piece>().ingredient;
                     ingredient.transform.parent = bin.transform;
                     ScoreManager.AddScore(ingredient.scoreValue);
                 }
@@ -55,7 +55,7 @@ public class BurgerSpawner : MonoBehaviour
                 drawerMeat.SetActive(true);
                 for (int i = drawerMeat.transform.childCount - 1; i >= 0; i--)
                 {
-                    Ingredient ingredient = drawerMeat.transform.GetChild(i).GetComponent<Ingredient>();
+                    Ingredient ingredient = drawerMeat.transform.GetChild(i).gameObject.GetComponent<Piece>().ingredient;
                     ingredient.transform.parent = bin.transform;
                     ScoreManager.AddScore(ingredient.scoreValue);
                 }
@@ -64,7 +64,7 @@ public class BurgerSpawner : MonoBehaviour
                 drawerCondiment2.SetActive(true);
                 for (int i = drawerCondiment2.transform.childCount - 1; i >= 0; i--)
                 {
-                    Ingredient ingredient = drawerCondiment2.transform.GetChild(i).GetComponent<Ingredient>();
+                    Ingredient ingredient = drawerCondiment2.transform.GetChild(i).gameObject.GetComponent<Piece>().ingredient;
                     ingredient.transform.parent = bin.transform;
                     ScoreManager.AddScore(ingredient.scoreValue);
                 }
