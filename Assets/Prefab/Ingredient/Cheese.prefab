@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 15
+  scoreValue: 4
   pieces:
   - {fileID: 7359622735054028859}
   type: 0

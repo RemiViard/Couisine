@@ -100,9 +100,9 @@ public class Knife : MonoBehaviour
     {
         List<RaycastHit> hits = new List<RaycastHit>();
 
-        hits.AddRange(Physics.RaycastAll(slicePivot.position, slicePivot.forward, 0.7f));
-        hits.AddRange(Physics.RaycastAll(slicePivot.position + Vector3.up * 0.6f, slicePivot.forward, 0.7f));
-        hits.AddRange(Physics.RaycastAll(slicePivot.position + Vector3.up * 1.2f, slicePivot.forward, 0.7f));
+        hits.AddRange(Physics.RaycastAll(slicePivot.position, slicePivot.forward, 1.2f));
+        hits.AddRange(Physics.RaycastAll(slicePivot.position + Vector3.up * 0.05f, slicePivot.forward, 1.2f));
+        hits.AddRange(Physics.RaycastAll(slicePivot.position + Vector3.up * 0.2f, slicePivot.forward, 1.2f));
         List<Collider> testedHits = new List<Collider>();
         if (hits.Count > 0)
         {

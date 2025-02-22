@@ -147,7 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a92023b0b4053cc428f1b146f11e7f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 25
+  scoreValue: 50
   pieces:
   - {fileID: 2124380444111117646}
   type: 2
