@@ -2255,9 +2255,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutoSprites:
   - {fileID: 21300000, guid: 3f1cd4708851a814692a7b160ca9f520, type: 3}
-  - {fileID: 21300000, guid: 9111360c2e6dd484c9ada21f8ae88917, type: 3}
   - {fileID: 21300000, guid: 9b23180fd7696b447812d0da076129b7, type: 3}
   - {fileID: 21300000, guid: 363b9ab0b6d35af459b9caa2075c9d5e, type: 3}
+  - {fileID: 21300000, guid: 9111360c2e6dd484c9ada21f8ae88917, type: 3}
   stages:
   - {fileID: 917671673}
   - {fileID: 1371961403}
