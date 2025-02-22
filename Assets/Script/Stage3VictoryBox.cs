@@ -39,4 +39,8 @@ public class Stage3VictoryBox : MonoBehaviour
             ingredient.transform.localPosition = Vector3.zero;
         }
     }
+    private void OnDisable()
+    {
+        meat.Clear();
+    }
 }
