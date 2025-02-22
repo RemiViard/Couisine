@@ -4,6 +4,7 @@ using System;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using Unity.Mathematics;
 
 public class Knife : MonoBehaviour
 {
@@ -22,6 +23,9 @@ public class Knife : MonoBehaviour
     InputAction rightClick;
     float lastMouseX;
     [SerializeField] Transform slicePivot;
+    
+    [SerializeReference] List<AudioSource> cutAudios = new List<AudioSource>();
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -88,6 +92,7 @@ public class Knife : MonoBehaviour
     {
         if (!isBusy)
         {
+            RandomAudioSource().Play();
             isBusy = true;
         }
     }
@@ -130,4 +135,7 @@ public class Knife : MonoBehaviour
         Cut();
     }
 
+    private AudioSource RandomAudioSource() {
+        return cutAudios[UnityEngine.Random.Range(0, cutAudios.Count)];
+    }
 }
