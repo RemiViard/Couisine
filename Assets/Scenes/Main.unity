@@ -846,9 +846,9 @@ MonoBehaviour:
   spawnDelay: 2
   spawnPos: {fileID: 2899138074431623720}
   type: 1
-  force: 60
+  force: 20
   bin: {fileID: 553131368}
-  PositionRandom: 0
+  PositionRandom: 0.7
 --- !u!1 &145286345
 GameObject:
   m_ObjectHideFlags: 0
@@ -2286,8 +2286,8 @@ MonoBehaviour:
   stars: {fileID: 877930479}
   scoreText: {fileID: 759666342}
   effectSpeed: 0.2
-  twoStarsScore: 250
-  threeStarsScore: 400
+  twoStarsScore: 300
+  threeStarsScore: 450
   active: 0
 --- !u!114 &389623820
 MonoBehaviour:
@@ -5044,7 +5044,7 @@ MonoBehaviour:
   spawnDelay: 2
   spawnPos: {fileID: 1783933325}
   type: 0
-  force: 150
+  force: 100
   bin: {fileID: 553131368}
   PositionRandom: 2
 --- !u!1 &1409474781
