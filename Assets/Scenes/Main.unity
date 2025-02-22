@@ -2304,10 +2304,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activated: 0
-  textsUI: []
-  imagesUI: []
-  nameUI: []
-  starsUI: []
+  review: {fileID: 1616205887}
+  textsUI:
+  - {fileID: 1743159400}
+  - {fileID: 1575895423}
+  - {fileID: 362363367}
+  imagesUI:
+  - {fileID: 551385068}
+  - {fileID: 1018996100}
+  - {fileID: 147158547}
+  nameUI:
+  - {fileID: 1609532191}
+  - {fileID: 2053559920}
+  - {fileID: 1533984061}
+  starsUI:
+  - {fileID: 1354456087}
+  - {fileID: 2117652785}
+  - {fileID: 9758586}
+  starSprite: []
   faces:
   - {fileID: 21300000, guid: 33b294d9dcb1c0c4aa00dff99e1154ab, type: 3}
   texts:
@@ -3976,7 +3990,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1093591542
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6098,7 +6112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1616205888
 RectTransform:
   m_ObjectHideFlags: 0
