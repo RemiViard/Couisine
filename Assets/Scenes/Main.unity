@@ -2310,12 +2310,43 @@ MonoBehaviour:
   starsUI: []
   faces:
   - {fileID: 21300000, guid: 33b294d9dcb1c0c4aa00dff99e1154ab, type: 3}
+  - {fileID: 21300000, guid: 63545fc9b5f0e3a4b945f1d5ac23c83a, type: 3}
+  - {fileID: 21300000, guid: ed55d98c551f5fd4d814ae7a1c0c0c0e, type: 3}
+  - {fileID: 21300000, guid: 7da63339c0b5c4f458824c14bdb63c67, type: 3}
+  - {fileID: 21300000, guid: d1964d5620ccb8a4bb9f360b78ecfdd4, type: 3}
+  - {fileID: 21300000, guid: 24e7d98f7c6984943b0fac01d20c2cb8, type: 3}
+  - {fileID: 21300000, guid: 378a0febc58504f4ba75fce5ccf19067, type: 3}
+  - {fileID: 21300000, guid: e286c4ce495a0f24eadbcc971910d781, type: 3}
   texts:
-  - 
-  - 
-  starNbs: 0000000000000000
+  - Excellent ! The meat was delicious, I wonder what it was !
+  - I love this bakery they make excellent bread!!!
+  - The secret sauce is actually a secret. Even the chef doesn't know what's in it.
+  - I came for a burger and left with enlightenment. 10/10 experience.
+  - "The chef clearly trained in France\u2026"
+  - Finally, a restaurant that understands the importance of a good pickle-to-bun
+    ratio!
+  - The service was so fast, I suspect they saw me coming and pre-made my order.
+  - Hum, it was okay..?
+  - I asked for medium rare, but I think they served me 'still mooing'.
+  - It feels like the chef didn't even try.
+  - I definitely won't be returning.
+  - I will never put a foot in this restaurant again.
+  - It was a complete embarrassment for a place that claims to be a fine dining restaurant
+  - You will be hearing from my lawyer.
+  - Would be better with better ingredients.
+  - I wanna meet the cook he seems like a nice guy.
+  - Perfect place for a breakup.
+  - I think they get their ingredients from the trash.
+  starNbs: 050000000400000004000000050000000300000004000000050000000200000002000000020000000100000001000000020000000100000003000000030000000100000001000000
   names:
   - Jardi
+  - Diego
+  - Few
+  - Jorid
+  - Thomas
+  - Jodi
+  - Jodri
+  - "R\xE9mi"
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
