@@ -100,25 +100,31 @@ public class Knife : MonoBehaviour
     {
         List<RaycastHit> hits = new List<RaycastHit>();
 
-        hits.AddRange(Physics.RaycastAll(slicePivot.position, slicePivot.forward, 0.7f));
-        //hits.AddRange(Physics.RaycastAll(slicePivot.position + Vector3.up * 0.6f, slicePivot.forward, 0.7f));
-        //hits.AddRange(Physics.RaycastAll(slicePivot.position + Vector3.up * 1.2f, slicePivot.forward, 0.7f));
+        hits.AddRange(Physics.RaycastAll(slicePivot.position, slicePivot.forward, 1.2f));
+        hits.AddRange(Physics.RaycastAll(slicePivot.position + Vector3.up * 0.05f, slicePivot.forward, 1.2f));
+        hits.AddRange(Physics.RaycastAll(slicePivot.position + Vector3.up * 0.2f, slicePivot.forward, 1.2f));
+        List<Collider> testedHits = new List<Collider>();
         if (hits.Count > 0)
         {
             foreach (var hit in hits)
             {
-                if (hit.collider.gameObject.CompareTag("Sliceable"))
+                if (!testedHits.Contains(hit.collider))
+                    testedHits.Add(hit.collider);
+            }
+            foreach (var collider in testedHits)
+            {
+                if (collider.gameObject.CompareTag("Sliceable"))
                 {
-                    GameObject ingredient = Cutter.Cut(hit.collider.gameObject, slicePivot.position, slicePivot.right);
+                    GameObject ingredient = Cutter.Cut(collider.gameObject, slicePivot.position, slicePivot.right);
                     if (ingredient != null)
                     {
-                        if (hit.collider.gameObject.name.Contains("Piece"))
-                            ingredient.name = hit.collider.gameObject.name;
+                        if (collider.gameObject.name.Contains("Piece"))
+                            ingredient.name = collider.gameObject.name;
                         else
-                            ingredient.name = hit.collider.gameObject.name + " Piece";
+                            ingredient.name = collider.gameObject.name + " Piece";
                         ingredient.tag = "Sliceable";
                         Piece piece = ingredient.AddComponent<Piece>();
-                        piece.ingredient = hit.collider.gameObject.GetComponent<Piece>().ingredient;
+                        piece.ingredient = collider.gameObject.GetComponent<Piece>().ingredient;
                         piece.ingredient.pieces.Add(piece);
                     }
                 }

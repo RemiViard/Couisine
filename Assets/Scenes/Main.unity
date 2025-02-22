@@ -771,7 +771,7 @@ MonoBehaviour:
   spawnDelay: 2
   spawnPos: {fileID: 2899138074431623720}
   type: 1
-  force: 70
+  force: 60
   bin: {fileID: 553131368}
   PositionRandom: 1
 --- !u!1 &145286345
@@ -974,7 +974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1729737013322821392, guid: 46833dd941445e44b94be9449b08c01b, type: 3}
       propertyPath: m_Size.y
-      value: 0.7
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 4558243020533056989, guid: 46833dd941445e44b94be9449b08c01b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -986,7 +986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4558243020533056989, guid: 46833dd941445e44b94be9449b08c01b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.752
+      value: 0.818
       objectReference: {fileID: 0}
     - target: {fileID: 4558243020533056989, guid: 46833dd941445e44b94be9449b08c01b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1930,8 +1930,8 @@ MonoBehaviour:
   stars: {fileID: 877930479}
   scoreText: {fileID: 759666342}
   effectSpeed: 0.2
-  twoStarsScore: 100
-  threeStarsScore: 200
+  twoStarsScore: 250
+  threeStarsScore: 400
   active: 0
 --- !u!114 &389623820
 MonoBehaviour:
@@ -4305,9 +4305,9 @@ MonoBehaviour:
   spawnDelay: 2
   spawnPos: {fileID: 1783933325}
   type: 0
-  force: 120
+  force: 150
   bin: {fileID: 553131368}
-  PositionRandom: 1.5
+  PositionRandom: 2
 --- !u!1 &1409474781
 GameObject:
   m_ObjectHideFlags: 0
@@ -7119,7 +7119,11 @@ PrefabInstance:
       objectReference: {fileID: 1610023626}
     - target: {fileID: 7277411727991901392, guid: 3f9f1287a8f85da43938c96ced753855, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.266
+      value: -0.314
+      objectReference: {fileID: 0}
+    - target: {fileID: 7277411727991901392, guid: 3f9f1287a8f85da43938c96ced753855, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.228
       objectReference: {fileID: 0}
     - target: {fileID: 8230878770458708654, guid: 3f9f1287a8f85da43938c96ced753855, type: 3}
       propertyPath: m_LocalPosition.x
