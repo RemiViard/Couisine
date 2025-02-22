@@ -17,6 +17,7 @@ public class ScoreUI : MonoBehaviour
     float time;
     bool effectActivated;
     public bool active;
+    int nbstar;
     public void ShowScore()
     {
         scoreUI.SetActive(true);
@@ -28,13 +29,12 @@ public class ScoreUI : MonoBehaviour
     }
     void ShowStars()
     {
-
-        int id = 0;
+        nbstar = 0;
         if (ScoreManager.score >= threeStarsScore)
-            id = 2;
+            nbstar = 2;
         else if (ScoreManager.score >= twoStarsScore)
-            id = 1;
-        stars.sprite = starsSprites[id];
+            nbstar = 1;
+        stars.sprite = starsSprites[nbstar];
         stars.gameObject.SetActive(true);
     }
     void SetScoreUI()
@@ -62,13 +62,13 @@ public class ScoreUI : MonoBehaviour
             time = 1;
         else if(!reviewUI.activated)
         {
-            active = false;
             scoreUI.SetActive(false);
-            stage4.ReturnMenu();
-            //reviewUI.Activate();
+            reviewUI.Activate(nbstar);
         }
         else
         {
+            reviewUI.Desactivate();
+            active = false;
             stage4.ReturnMenu();
         }
     }
