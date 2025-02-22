@@ -1,39 +1,26 @@
+using System;
 using UnityEngine;
 
 public class FryingPan : MonoBehaviour
 {
-    Vector3 lastMousePos;
     [SerializeField] Transform children;
-    [SerializeField] float rotationSensitivity;
+    [SerializeField] float sensitivityX = 0.18f;
+    [SerializeField] float sensitivityY = 0.11f;
     [SerializeField] float rotationClamp;
     private void Start()
     {
-        lastMousePos = Input.mousePosition;
+
     }
     private void Update()
     {
-        if (lastMousePos != Input.mousePosition)
-        {
-            Vector2 input = Input.mousePosition - lastMousePos;
-            input *= Time.deltaTime * rotationSensitivity;
-            float testedZ = (transform.eulerAngles.z + input.x);
-            if(testedZ <= rotationClamp || testedZ >= 360 - rotationClamp)
-            {
-                transform.Rotate(transform.forward, input.x, Space.World);
-            }
-            float testedX = (children.eulerAngles.x + input.y);
-            if(testedX <= rotationClamp || testedX >= 360 - rotationClamp)
-            {
-                children.Rotate(children.right, input.y, Space.World);
-            }
-            lastMousePos = Input.mousePosition;
-            if (!HasValidValue(transform.eulerAngles.z, children.eulerAngles.x))
-            {
-                children.transform.rotation = Quaternion.identity;
-                transform.rotation = Quaternion.identity;
-            }
-                
-        }
+        var x = (1 - 2 * Input.mousePosition.x / Screen.width) * sensitivityX;
+        var y = (1 - 2 * Input.mousePosition.y / Screen.height) * sensitivityY;
+        children.transform.rotation = Quaternion.Euler(
+            360 * (y / 2 + 0.5f),
+            360 * (x*y + 0.5f),
+            360 * (x / 2 + 0.5f)
+        );
+        Debug.Log(children.transform.rotation.eulerAngles);
     }
     private bool HasValidValue(float value, float value2)
     {
