@@ -4,7 +4,7 @@ using UnityEngine;
 public class Stage3 : MonoBehaviour
 {
     [SerializeField] Timer timer;
-    [SerializeField] GameObject stage4;
+    [SerializeField] Tuto tuto;
     [SerializeField] Stage3VictoryBox victoryBox;
 
     void OnEnable()
@@ -21,6 +21,6 @@ public class Stage3 : MonoBehaviour
     void NextStage()
     {
         gameObject.SetActive(false);
-        stage4.SetActive(true);
+        tuto.ShowTuto(3);
     }
 }

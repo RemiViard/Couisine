@@ -3,7 +3,7 @@ using UnityEngine;
 public class Stage2 : MonoBehaviour
 {
     [SerializeField] Timer timer;
-    [SerializeField] GameObject stage3;
+    [SerializeField] Tuto tuto;
     [SerializeField] BoxCollider cuttingboardCollider;
     [SerializeField] IngredientManager ingredientManager;
     [SerializeField] Transform drawerCondimant;
@@ -45,6 +45,6 @@ public class Stage2 : MonoBehaviour
             }
         }
         gameObject.SetActive(false);
-        stage3.SetActive(true);
+        tuto.ShowTuto(2);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class Stage1 : MonoBehaviour
 {
     [SerializeField] Stage1Basket basket;
-    [SerializeField] GameObject stage2;
+    [SerializeField] Tuto tuto;
     [SerializeField] GameObject UIPanel;
     [SerializeField] Text UIText;
     public enum EState
@@ -39,10 +39,10 @@ public class Stage1 : MonoBehaviour
     }
 
     void NextStage() {
-        stage2.SetActive(true);
         gameObject.SetActive(false);
         state = EState.Steack;
         UIPanel.SetActive(false);
+        tuto.ShowTuto(1);
     }
     void ChangeUI()
     {

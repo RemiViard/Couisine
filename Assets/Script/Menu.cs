@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Menu : MonoBehaviour
 {
-    [SerializeField] GameObject stage1;
+    [SerializeField] Tuto tuto;
     [SerializeField] GameObject menu;
     public void Play()
     {
-        stage1.gameObject.SetActive(true);
+        tuto.ShowTuto(0);
         menu.SetActive(false);
     }
     public void Quit()
