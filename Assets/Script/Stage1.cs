@@ -23,7 +23,14 @@ public class Stage1 : MonoBehaviour
         ChangeUI();
         UIPanel.SetActive(true);
     }
-
+    private void OnEnable()
+    {
+        Cursor.visible = false;
+    }
+    private void OnDisable()
+    {
+        Cursor.visible = true;
+    }
     void OnBasketUpdate() {
         if (state == EState.Bot)
         {

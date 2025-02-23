@@ -15,6 +15,11 @@ public class Stage2 : MonoBehaviour
     {
         timer.SetTimer(30);
         timer.timerEnd.AddListener(OnTimerEnd);
+        Cursor.visible = false;
+    }
+    private void OnDisable()
+    {
+        Cursor.visible = true;
     }
     void OnTimerEnd()
     {
