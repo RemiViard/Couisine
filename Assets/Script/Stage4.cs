@@ -10,4 +10,12 @@ public class Stage4 : MonoBehaviour
         menu.Restart();
         gameObject.SetActive(false);
     }
+    private void OnEnable()
+    {
+        Cursor.visible = false;
+    }
+    private void OnDisable()
+    {
+        Cursor.visible = true;
+    }
 }

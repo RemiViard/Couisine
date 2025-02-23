@@ -60,13 +60,16 @@ public class ReviewUI : MonoBehaviour
         {
             ids.Add(i);
         }
-        int removeId = ids[Random.Range(0, ids.Count)];
+
+        int removeId = Random.Range(0, ids.Count);
         int face1 = ids[removeId];
         ids.RemoveAt(removeId);
-        removeId = ids[Random.Range(0, ids.Count)];
+
+        removeId = Random.Range(0, ids.Count);
         int face2 = ids[removeId];
         ids.RemoveAt(removeId);
-        removeId = ids[Random.Range(0, ids.Count)];
+
+        removeId = Random.Range(0, ids.Count);
         int face3 = ids[removeId];
 
         starsUI[0].sprite = starSprite[starNbs[id1] - 1];
