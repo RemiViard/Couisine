@@ -7,7 +7,7 @@ public class Stage4 : MonoBehaviour
     public void ReturnMenu()
     {
         bin.ClearBin();
-        menu.CloseIntro();
+        menu.Restart();
         gameObject.SetActive(false);
     }
 }

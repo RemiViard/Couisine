@@ -2301,10 +2301,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activated: 0
-  textsUI: []
-  imagesUI: []
-  nameUI: []
-  starsUI: []
+  review: {fileID: 1616205887}
+  textsUI:
+  - {fileID: 1743159400}
+  - {fileID: 1575895423}
+  - {fileID: 362363367}
+  imagesUI:
+  - {fileID: 551385068}
+  - {fileID: 1018996100}
+  - {fileID: 147158547}
+  nameUI:
+  - {fileID: 1609532191}
+  - {fileID: 2053559920}
+  - {fileID: 1533984061}
+  starsUI:
+  - {fileID: 1354456087}
+  - {fileID: 2117652785}
+  - {fileID: 9758586}
+  starSprite:
+  - {fileID: 21300000, guid: 3f4b55e780ae9554d9d0c8ca7a7da182, type: 3}
+  - {fileID: 21300000, guid: b733354ba71e0b842aec083d83d801b4, type: 3}
+  - {fileID: 21300000, guid: 5bec413349bfd614abfadb823816f2b8, type: 3}
+  - {fileID: 21300000, guid: 45b45e5bbbae3a9499adae4285b7b639, type: 3}
+  - {fileID: 21300000, guid: 91cd60b1cebacb5439c28815375403d3, type: 3}
   faces:
   - {fileID: 21300000, guid: 33b294d9dcb1c0c4aa00dff99e1154ab, type: 3}
   - {fileID: 21300000, guid: 63545fc9b5f0e3a4b945f1d5ac23c83a, type: 3}

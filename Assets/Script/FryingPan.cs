@@ -20,7 +20,6 @@ public class FryingPan : MonoBehaviour
             360 * (x*y + 0.5f),
             360 * (x / 2 + 0.5f)
         );
-        Debug.Log(children.transform.rotation.eulerAngles);
     }
     private bool HasValidValue(float value, float value2)
     {
