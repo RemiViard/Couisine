@@ -14,8 +14,6 @@ public class Menu : MonoBehaviour
     {
         intro.SetActive(false);
         menu.SetActive(true);
-        bgMusic.Stop();
-        menuMusic.Play();
     }
     public void Play()
     {

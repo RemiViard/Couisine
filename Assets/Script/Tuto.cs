@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Tuto : MonoBehaviour
@@ -18,6 +19,7 @@ public class Tuto : MonoBehaviour
     public void CloseButton()
     {
         tutoUi.gameObject.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
         stages[currentTuto].SetActive(true);
     }
 }
