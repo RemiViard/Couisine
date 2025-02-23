@@ -26,6 +26,7 @@ public class Menu : MonoBehaviour
     }
     public void Restart()
     {
+        ScoreManager.ResetScore();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void Quit()
