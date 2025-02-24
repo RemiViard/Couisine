@@ -51,7 +51,7 @@ public class Stage1Basket : MonoBehaviour
             }
             return true;
         } 
-        else if (treadmillSpawner.stage1.state == Stage1.EState.Steack && ingredient.type == Ingredient.EType.ECookable)
+        else if (treadmillSpawner.stage1.state == Stage1.EState.Steak && ingredient.type == Ingredient.EType.ECookable)
             return true;
 
         return false;

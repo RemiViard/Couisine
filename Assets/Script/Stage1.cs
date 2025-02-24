@@ -9,7 +9,7 @@ public class Stage1 : MonoBehaviour
     [SerializeField] Text UIText;
     public enum EState
     {
-        Steack,
+        Steak,
         Condiment1,
         Condiment2,
         Top,
@@ -19,7 +19,7 @@ public class Stage1 : MonoBehaviour
     void Start()
     {
         basket.onAdd += OnBasketUpdate;
-        state = EState.Steack;
+        state = EState.Steak;
         ChangeUI();
         UIPanel.SetActive(true);
     }
@@ -44,7 +44,7 @@ public class Stage1 : MonoBehaviour
     }
     void NextStage() {
         gameObject.SetActive(false);
-        state = EState.Steack;
+        state = EState.Steak;
         UIPanel.SetActive(false);
         tuto.ShowTuto(1);
     }

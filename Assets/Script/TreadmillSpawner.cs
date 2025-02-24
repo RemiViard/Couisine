@@ -44,7 +44,7 @@ public class TreadmillSpawner : MonoBehaviour
             prefab = condiment[Random.Range(0, condiment.Count)];
         else if (stage1.state == Stage1.EState.Top || stage1.state == Stage1.EState.Bot)
             prefab = bread[Random.Range(0, bread.Count)];
-        else if (stage1.state == Stage1.EState.Steack)
+        else if (stage1.state == Stage1.EState.Steak)
             prefab = steack[Random.Range(0, steack.Count)];
 
         var instance = Instantiate(prefab, transform.position, Quaternion.identity);
